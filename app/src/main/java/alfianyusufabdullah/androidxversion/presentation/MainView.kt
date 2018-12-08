@@ -1,0 +1,5 @@
+package alfianyusufabdullah.androidxversion.presentation
+
+import alfianyusufabdullah.androidxversion.data.repository.AndroidKTXRepositoryCallback
+
+interface MainView : AndroidKTXRepositoryCallback
