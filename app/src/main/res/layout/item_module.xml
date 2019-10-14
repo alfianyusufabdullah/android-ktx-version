@@ -17,6 +17,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
+            android:padding="16dp"
             android:orientation="vertical">
 
         <TextView
@@ -25,19 +26,32 @@
                 android:layout_height="wrap_content"
                 tools:text="Core"
                 android:textSize="25sp"
-                android:textColor="@color/colorPrimary"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"/>
+                android:textColor="@color/colorPrimary"/>
 
         <TextView
                 android:id="@+id/tvPackage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="core-ktx:1.0.1"
+                tools:text="core-ktx"
                 android:textSize="17sp"
-                android:textStyle="bold"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="20dp"/>
+                android:textStyle="bold"/>
+
+        <TextView
+                android:id="@+id/tvLatestRelease"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Latest release: "
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"/>
+
+        <TextView
+                android:id="@+id/tvLatestStableRelease"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Latest stable release: "
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"/>
 
     </LinearLayout>
 
