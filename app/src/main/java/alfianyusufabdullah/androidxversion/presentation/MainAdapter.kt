@@ -3,12 +3,14 @@ package alfianyusufabdullah.androidxversion.presentation
 import alfianyusufabdullah.androidxversion.R
 import alfianyusufabdullah.androidxversion.data.entity.ModuleEntity
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_module.view.*
 
-class MainAdapter(private val modules: MutableList<ModuleEntity>) : RecyclerView.Adapter<MainAdapter.MainHolder>() {
+class MainAdapter(private val modules: MutableList<ModuleEntity>) :
+    RecyclerView.Adapter<MainAdapter.MainHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MainHolder {
         val view = LayoutInflater.from(p0.context).inflate(R.layout.item_module, p0, false)
         return MainHolder(view)
@@ -30,10 +32,19 @@ class MainAdapter(private val modules: MutableList<ModuleEntity>) : RecyclerView
         notifyItemInserted(modules.size - 1)
     }
 
-    class MainHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    class MainHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(module: ModuleEntity) {
             view.tvModule.text = module.module
-            view.tvPackage.text = "${module.packages}:${module.version}"
+            view.tvPackage.text = "%s:%s".format(module.packages, module.latestRelease)
+            view.tvLatestRelease.text = String.format("Latest release: %1s", module.latestRelease)
+
+            if (module.latestStableRelease.isNotEmpty()) {
+                view.tvLatestStableRelease.visibility = View.VISIBLE
+                view.tvLatestStableRelease.text =
+                    String.format("Latest stable release: %1s", module.latestStableRelease)
+            } else {
+                view.tvLatestStableRelease.visibility = View.GONE
+            }
         }
     }
 }
