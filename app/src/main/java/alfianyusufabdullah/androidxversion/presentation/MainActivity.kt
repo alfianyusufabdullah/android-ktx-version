@@ -7,6 +7,7 @@ import alfianyusufabdullah.androidxversion.data.repository.AndroidKTXRepository
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
+import android.view.Gravity
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         supportActionBar?.elevation = 0f
 
@@ -41,13 +43,13 @@ class MainActivity : AppCompatActivity(), MainView {
 
     override fun onStartToLoad() {
         swipeRefresh.isRefreshing = true
-        tvLoadStat.visibility = View.VISIBLE
+        tvLoadInfo.visibility = View.VISIBLE
 
         (rvModule.adapter as MainAdapter).clear()
     }
 
     override fun onLoad(module: String) {
-        tvLoadStat.text = module
+        tvLoadInfo.text = module
     }
 
     override fun onNext(module: ModuleEntity) {
@@ -55,9 +57,9 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun onCompleted(error: Boolean) {
-        tvLoadStat.text = if (error) "Some module fail to load" else "Done"
-        tvLoadStat.postDelayed({
-            tvLoadStat.visibility = View.GONE
+        tvLoadInfo.text = if (error) "Some module fail to load" else "Success load all module"
+        tvLoadInfo.postDelayed({
+            tvLoadInfo.visibility = View.GONE
             swipeRefresh.isRefreshing = false
         }, 1000)
     }

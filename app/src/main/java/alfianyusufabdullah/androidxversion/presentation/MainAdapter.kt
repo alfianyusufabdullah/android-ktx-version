@@ -34,17 +34,12 @@ class MainAdapter(private val modules: MutableList<ModuleEntity>) :
 
     class MainHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(module: ModuleEntity) {
-            view.tvModule.text = module.module
-            view.tvPackage.text = "%s:%s".format(module.packages, module.latestRelease)
-            view.tvLatestRelease.text = String.format("Latest release: %1s", module.latestRelease)
+            view.itemModule.text = module.module
+            view.itemPackage.text = module.packages
+            view.itemLatestRelease.text = String.format("Latest: %1s", module.latestRelease)
 
-            if (module.latestStableRelease.isNotEmpty()) {
-                view.tvLatestStableRelease.visibility = View.VISIBLE
-                view.tvLatestStableRelease.text =
-                    String.format("Latest stable release: %1s", module.latestStableRelease)
-            } else {
-                view.tvLatestStableRelease.visibility = View.GONE
-            }
+            view.itemStableRelease.text =
+                String.format("Stable: %1s", module.latestStableRelease)
         }
     }
 }
