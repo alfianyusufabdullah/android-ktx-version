@@ -28,7 +28,7 @@ class RemoteDataSource {
                     module = module,
                     packages = packages,
                     latestRelease = latestRelease,
-                    latestStableRelease = if (latestStableRelease.isNotEmpty()) latestStableRelease.last() else ""
+                    latestStableRelease = if (latestStableRelease.isNotEmpty()) latestStableRelease.last() else "-"
                 )
 
                 modules.add(ktxModule)

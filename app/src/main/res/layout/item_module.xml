@@ -1,59 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/bg_version_item"/>
-
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_version_item_white"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:padding="16dp"
-            android:orientation="vertical">
+            android:background="@drawable/bg_item_mask"
+            android:elevation="5dp">
+
+        <FrameLayout
+                android:id="@+id/containerItem"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_item"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="24dp"
+                android:alpha="0.2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_packing" />
 
         <TextView
-                android:id="@+id/tvModule"
-                android:layout_width="match_parent"
+                android:id="@+id/itemModule"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Core"
-                android:textSize="25sp"
-                android:textColor="@color/colorPrimary"/>
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_reg"
+                android:textColor="#C29461"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Core" />
 
         <TextView
-                android:id="@+id/tvPackage"
-                android:layout_width="match_parent"
+                android:id="@+id/itemPackage"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="core-ktx"
-                android:textSize="17sp"
-                android:textStyle="bold"/>
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/roboto_reg"
+                android:textColor="#808080"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/itemModule"
+                tools:text="core-ktx" />
 
         <TextView
-                android:id="@+id/tvLatestRelease"
-                android:layout_width="match_parent"
+                android:id="@+id/itemLatestRelease"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Latest release: "
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/roboto_reg"
+                android:textColor="#000"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/itemPackage"
+                app:layout_constraintTop_toBottomOf="@id/itemPackage"
+                tools:text="Latest: 12.0.0-alpha02" />
 
         <TextView
-                android:id="@+id/tvLatestStableRelease"
-                android:layout_width="match_parent"
+                android:id="@+id/itemStableRelease"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Latest stable release: "
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"
-                android:visibility="gone"/>
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/roboto_reg"
+                android:textColor="#000"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/itemLatestRelease"
+                app:layout_constraintTop_toBottomOf="@+id/itemPackage"
+                tools:text="Stable: 11.0.0" />
 
-    </LinearLayout>
 
+    </android.support.constraint.ConstraintLayout>
 
 </RelativeLayout>

@@ -7,23 +7,41 @@
         android:layout_height="match_parent"
         tools:context=".presentation.MainActivity">
 
-    <TextView
-            android:id="@+id/tvLoadStat"
+    <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
-            android:padding="10dp"
-            android:gravity="center"
-            android:background="@color/colorPrimary"
-            android:textColor="#fff"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@null"
+            app:elevation="10dp"/>
+
+    <ImageView
+            android:id="@+id/ivKtxLogo"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="@id/toolbar"
+            app:layout_constraintTop_toTopOf="@id/toolbar"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            android:layout_marginStart="16dp"
+            app:srcCompat="@drawable/ic_android_ktx"/>
+
+    <TextView
+            android:id="@+id/tvLoadInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="success to load all module"
+            android:textSize="9sp"
+            app:layout_constraintTop_toBottomOf="@id/ivKtxLogo"
+            app:layout_constraintBottom_toBottomOf="@id/ivKtxLogo"
+            app:layout_constraintStart_toStartOf="@id/ivKtxLogo"
+            android:layout_marginStart="8dp"/>
 
     <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefresh"
             android:layout_width="match_parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvLoadStat"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -33,7 +51,8 @@
                 android:id="@+id/rvModule"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingBottom="16dp"
+                android:paddingBottom="70dp"
+                android:paddingTop="10dp"
                 android:clipToPadding="false"
                 tools:listitem="@layout/item_module"/>
 
